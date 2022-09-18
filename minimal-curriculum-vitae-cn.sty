@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A simple resume template exports orgmode to PDF
+%
+% Author: Kimi MA <kimi.im@outlook.com>
+%
+% Version: 1.0 (2020-08-08)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -------------------------------------------------------------------
+% PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+% -------------------------------------------------------------------
+
+\ProvidesPackage{kimim-cv-cn}
+
+\usepackage{url}
+\usepackage{calc}
+\usepackage{parskip}            % ignore paragraph prefix space
+\usepackage{titlesec}           % custom section
+\usepackage{enumitem}           % custom lists
+\usepackage{color,xcolor}
+
+\usepackage[big]{layaureo} % Margin formatting of the A4 page, an
+                           % alternative to layaureo can be
+                           % \usepackage{fullpage}
+                           % To reduce the height of the top margin
+                           % uncomment: \addtolength{\voffset}{-1.3cm}
+
+%% Define Colors
+\usepackage{color}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks, urlcolor=linkcolour,linkcolor=linkcolour}
+
+\definecolor{sectionothercolor}{rgb}{1.00,0.65,0.20}
+\definecolor{sectioncolor}{rgb}{0.35,0.45,0.55}
+\definecolor{positioncolor}{HTML}{1E90FF}
+\definecolor{companycolor}{HTML}{4169E1}
+\definecolor{scoolcolor}{HTML}{4169E1}
+
+\pagestyle{empty} % Removes page numbering
+
+%% Set all text's left skip
+\leftskip=0.19\textwidth
+
+%% Config list
+\usepackage{enumitem}
+
+% -------------------------------------------------------------------
+% REDEFINE COMMANDS
+% -------------------------------------------------------------------
+
+%% Redefine Title
+\renewcommand*{\maketitle}{%
+  {
+    \begin{wrapfigure}{l}{0.79\textwidth}
+      \vspace{-60pt}
+      \includegraphics[width=0.15\textwidth]{photo.jpg}
+    \end{wrapfigure}
+    \raggedleft{\Huge \@title}\\[.3in]
+    }
+}
+
+\newcommand\position{\textcolor{positioncolor}}
+\newcommand\company[1]{\hfill\textit{\textbf{\textcolor{companycolor}{#1}}}}
+%%\newcommand\company[1]{\textit{\textbf{#1}}}
+\newcommand\school[1]{\hfill\textit{\textbf{\textcolor{scoolcolor}{#1}}}}
+
+%% Redefine Section Headings, etc.
+\titleformat{\section} %command
+            {\Large\scshape\raggedright} %format
+            {} %prefix number label
+            {0em} %sep
+            {} %before
+            [\titlerule] %after
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+\titleformat{\subsection} %command
+            [leftmargin] %shape
+            {\normalsize\raggedleft} %format
+            {} %prefix number label
+            {0pt} %sep
+            {} %before
+            [] %after
+\titlespacing{\subsection}
+            {0.18\textwidth}% max width of the title(for wrap/leftmargin shape)
+            {5pt}% vertical space before the title
+            {15pt}% separation between title and text
